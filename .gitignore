@@ -1,0 +1,44 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# 벡터 인덱스 캐시 (생성물)
+faiss_index/
+chroma_langchain_db/
+
+# 런타임 생성물
+.gradio/
+*.log
+
+# 세션 DB (생성물, WAL/SHM 포함)
+data/sessions.db*
+sessions.db*
+
+# 프론트엔드 (Node)
+frontend/node_modules/
+frontend/dist/
+
+# 환경 변수 (API 키 - 보안)
+.env
+
+# 백업 폴더
+bak/
+
+# CI / E2E 산출물 (생성물)
+.uvcache/
+aicr_ci.pid
+e2e/node_modules/
+e2e/playwright-report/
+e2e/test-results/
+
+# 사내 규정 원본 문서 (대외비, git 제외) — 파일은 제외, 디렉토리 구조는 유지
+data/**
+!data/**/
+!data/**/.gitkeep

@@ -1,0 +1,43 @@
+[project]
+name = "ai-company-regulations"
+version = "1.0.0"
+description = "사내 취업규칙 RAG 챗봇 (FastAPI + React + LangChain)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.116.0",
+    "uvicorn[standard]>=0.35.0",
+    "langchain>=0.3.25",
+    "langchain-chroma>=0.2.4",
+    "langchain-community>=0.3.24",
+    "langchain-core>=0.3.69",
+    "langchain-google-genai>=2.1.8",
+    "langchain-huggingface>=0.2.0",
+    "langchain-openai>=0.3.16",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "pypdf>=5.5.0",
+    "python-dotenv>=1.1.0",
+    "sentence-transformers>=5.5.1",
+    "pydantic-settings>=2.10.1",
+    "langchain-text-splitters>=0.3.8",
+    "torch>=2.12.0",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# api/main.py: dotenv.load_dotenv()를 config import 전에 실행하는 의도된 순서 → E402 허용
+"api/main.py" = ["E402"]
+
+# GPU 없는 서버 — torch는 CPU 전용 휠 사용 (CUDA 라이브러리 ~5G 절감)
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

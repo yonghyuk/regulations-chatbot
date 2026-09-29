@@ -1,0 +1,13 @@
+{
+  "name": "aicr-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "취업규칙 챗봇 Playwright 스모크 테스트",
+  "scripts": {
+    "test": "playwright test",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.0"
+  }
+}
